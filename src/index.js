@@ -13,7 +13,7 @@ const manga = {
   title
 }
 
-const query = "Berserk"
+const query = "Naruto"
 
 fetch(`https://api.jikan.moe/v4/manga?q=${query}`).then(response => {
   if(!response.ok) {
