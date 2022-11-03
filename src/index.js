@@ -14,14 +14,15 @@ const manga = {
 }
 
 const query = "Naruto"
+findManga(query)
 
-fetch(`https://api.jikan.moe/v4/manga?q=${query}`).then(response => {
-  if(!response.ok) {
-    throw new Error('Request failed')
-  }
-  return response.json()
-}).then(data => {
-  console.log(data)
-}).catch(error => console.log(error));
-
-
+function findManga(query) {
+  fetch(`https://api.jikan.moe/v4/manga?q=${query}`).then(response => {
+    if(!response.ok) {
+      throw new Error('Request failed')
+    }
+    return response.json()
+  }).then(data => {
+    console.log(data)
+  }).catch(error => console.log(error));
+}
