@@ -1,20 +1,11 @@
-const title = document.querySelector("[data-search]");
+const log = document.getElementById("searchQueryInput");
+const input = document.querySelector("[data-search]");
 const jikanAPI = 'https://api.jikan.moe/v4/manga';
 const HEADERS = {
   'Content-Type': 'application/json'
 };
 
-title.addEventListener("input", e => {
-    const value = e.target.value
-    console.log(value)
-});
-
-const manga = {
-  title
-}
-
-const query = "Naruto"
-findManga(query)
+input.addEventListener('input', updateValue);
 
 function findManga(query) {
   fetch(`https://api.jikan.moe/v4/manga?q=${query}`).then(response => {
@@ -25,4 +16,11 @@ function findManga(query) {
   }).then(data => {
     console.log(data)
   }).catch(error => console.log(error));
+}
+
+function updateValue(e) {
+  console.log(e)
+  if(e.key == 'Enter' || e.keyCode == 13) {
+    console.log(e)
+  }
 }
